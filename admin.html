@@ -1,1 +1,501 @@
-<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Admin | Contix Phones</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="admin-style.css"></head><body><header><a class="logo" href="index.html">▣ Contix <b>Phones</b></a><a href="index.html">View Store ↗</a></header><main class="wrap"><section id="login" class="card login"><small>PRIVATE AREA</small><h1>Admin Login</h1><form id="loginForm"><input id="password" type="password" placeholder="Admin password" required><button>Login</button></form><p>Demo password: <b>contix123</b>. Change it in app.js before publishing.</p></section><section id="dashboard" hidden><div class="title"><div><small>CONTROL PANEL</small><h1>Store Management</h1></div><button id="logout">Logout</button></div><div class="tabs"><button data-tab="products" class="active">Products</button><button data-tab="payments">Payment Settings</button><button data-tab="orders">Orders</button></div><div id="productsTab"><div class="row"><div><h2>Products</h2><p>Add product pictures, prices and specifications.</p></div><button id="add">+ Add Product</button></div><div id="adminProducts" class="adminGrid"></div></div><div id="paymentsTab" hidden class="card"><h2>Payment Details</h2><form id="paymentForm" class="form"><input id="bankName" placeholder="Bank Name" required><input id="accountName" placeholder="Account Name" required><input id="accountNumber" placeholder="Account Number" required><input id="adminEmail" type="email" placeholder="Contact Email" required><button>Save Details</button></form></div><div id="ordersTab" hidden class="card"><h2>Orders</h2><div id="orders"></div></div></section></main><div id="productModal" class="modal" hidden><div class="modalBox"><button class="close">×</button><h2 id="modalTitle">Add Product</h2><form id="productForm" class="form"><input type="hidden" id="pid"><input id="pname" placeholder="Product name" required><input id="pprice" type="number" min="0" step="0.01" placeholder="Price in USD" required><input id="pstorage" placeholder="Storage e.g. 256GB"><input id="pdisplay" placeholder="Display e.g. 6.9 inch"><input id="pnetwork" placeholder="Network e.g. 5G"><textarea id="pdesc" placeholder="Description"></textarea><label>Product picture <input id="pimage" type="file" accept="image/*"></label><div id="preview"></div><button>Save Product</button></form></div></div><script src="app.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard | Contix Phones</title>
+
+    <link rel="stylesheet" href="admin-style.css">
+
+</head>
+
+<body>
+
+
+<!-- LOGIN -->
+
+<div id="adminLogin" class="login-page">
+
+    <div class="login-box">
+
+        <div class="admin-logo">
+            C
+        </div>
+
+        <span class="section-label">
+            CONTIX PHONES
+        </span>
+
+        <h1>Admin Login</h1>
+
+        <p>
+            Sign in to manage your store.
+        </p>
+
+
+        <form id="loginForm">
+
+            <div class="form-group">
+
+                <label>Password</label>
+
+                <input
+                    type="password"
+                    id="adminPassword"
+                    placeholder="Enter admin password"
+                    required>
+
+            </div>
+
+            <button
+                type="submit"
+                class="primary-button full-button">
+                Login
+            </button>
+
+            <p
+                id="loginError"
+                class="error-message"
+                style="display:none;">
+                Incorrect password.
+            </p>
+
+        </form>
+
+        <a href="index.html" class="back-link">
+            ← Back to website
+        </a>
+
+    </div>
+
+</div>
+
+
+<!-- DASHBOARD -->
+
+<div id="adminDashboard" style="display:none;">
+
+
+<header class="admin-header">
+
+    <a href="index.html" class="admin-brand">
+
+        <span class="admin-logo-small">
+            C
+        </span>
+
+        <span>
+            CONTIX ADMIN
+        </span>
+
+    </a>
+
+
+    <div class="admin-actions">
+
+        <a
+            href="index.html"
+            target="_blank"
+            class="header-link">
+            View Website ↗
+        </a>
+
+        <button
+            onclick="adminLogout()"
+            class="logout-button">
+            Logout
+        </button>
+
+    </div>
+
+</header>
+
+
+<main class="dashboard">
+
+
+    <div class="dashboard-heading">
+
+        <div>
+
+            <span class="section-label">
+                CONTROL CENTER
+            </span>
+
+            <h1>Dashboard</h1>
+
+            <p>
+                Manage your phones, orders and payment details.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- STATS -->
+
+    <div class="stats-grid">
+
+        <div class="stat-card">
+
+            <span>📱</span>
+
+            <div>
+                <small>Products</small>
+                <strong id="productCount">0</strong>
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <span>🛒</span>
+
+            <div>
+                <small>Orders</small>
+                <strong id="orderCount">0</strong>
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <span>💰</span>
+
+            <div>
+                <small>Order Value</small>
+                <strong id="orderValue">₦0</strong>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- PRODUCTS -->
+
+    <section class="admin-section">
+
+        <div class="section-top">
+
+            <div>
+
+                <span class="section-label">
+                    STORE
+                </span>
+
+                <h2>Products</h2>
+
+            </div>
+
+            <button
+                class="primary-button"
+                onclick="openProductModal()">
+                + Add Product
+            </button>
+
+        </div>
+
+
+        <div id="adminProducts" class="admin-products"></div>
+
+    </section>
+
+
+    <!-- PAYMENT -->
+
+    <section class="admin-section">
+
+        <div class="section-top">
+
+            <div>
+
+                <span class="section-label">
+                    PAYMENT
+                </span>
+
+                <h2>Bank Details</h2>
+
+                <p>
+                    These details will be shown to customers
+                    during checkout.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <form id="paymentSettingsForm"
+              class="settings-form">
+
+            <div class="form-row">
+
+                <div class="form-group">
+
+                    <label>Bank Name</label>
+
+                    <input
+                        type="text"
+                        id="bankName"
+                        placeholder="e.g. Access Bank"
+                        required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Account Name</label>
+
+                    <input
+                        type="text"
+                        id="accountName"
+                        placeholder="Contix Phones"
+                        required>
+
+                </div>
+
+            </div>
+
+
+            <div class="form-row">
+
+                <div class="form-group">
+
+                    <label>Account Number</label>
+
+                    <input
+                        type="text"
+                        id="accountNumber"
+                        maxlength="10"
+                        placeholder="0123456789"
+                        required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Contact Email</label>
+
+                    <input
+                        type="email"
+                        id="storeEmail"
+                        placeholder="contact@example.com">
+
+                </div>
+
+            </div>
+
+
+            <div class="form-row">
+
+                <div class="form-group">
+
+                    <label>Contact Phone</label>
+
+                    <input
+                        type="tel"
+                        id="storePhone"
+                        placeholder="+234 800 000 0000">
+
+                </div>
+
+                <div></div>
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="primary-button">
+                Save Payment Details
+            </button>
+
+
+            <div
+                id="settingsMessage"
+                class="success-message"
+                style="display:none;">
+                Payment details saved successfully.
+            </div>
+
+        </form>
+
+    </section>
+
+
+    <!-- ORDERS -->
+
+    <section class="admin-section">
+
+        <div class="section-top">
+
+            <div>
+
+                <span class="section-label">
+                    CUSTOMERS
+                </span>
+
+                <h2>Orders</h2>
+
+            </div>
+
+        </div>
+
+
+        <div id="adminOrders" class="orders-list"></div>
+
+    </section>
+
+
+</main>
+
+
+<!-- PRODUCT MODAL -->
+
+<div id="productModal" class="modal">
+
+    <div class="modal-box">
+
+        <button
+            class="close-modal"
+            onclick="closeProductModal()">
+            ×
+        </button>
+
+
+        <span class="section-label">
+            STORE PRODUCT
+        </span>
+
+        <h2 id="productModalTitle">
+            Add Product
+        </h2>
+
+
+        <form id="productForm">
+
+
+            <input
+                type="hidden"
+                id="productId">
+
+
+            <div class="form-group">
+
+                <label>Product Name</label>
+
+                <input
+                    type="text"
+                    id="productName"
+                    placeholder="iPhone 17 Pro Max"
+                    required>
+
+            </div>
+
+
+            <div class="form-row">
+
+                <div class="form-group">
+
+                    <label>Price (₦)</label>
+
+                    <input
+                        type="number"
+                        id="productPrice"
+                        min="0"
+                        step="1"
+                        placeholder="1500000"
+                        required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Stock / Availability</label>
+
+                    <input
+                        type="text"
+                        id="productStock"
+                        placeholder="Pre-order">
+
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>Description</label>
+
+                <textarea
+                    id="productDescription"
+                    rows="4"
+                    placeholder="Describe the phone..."
+                    required></textarea>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>Product Image</label>
+
+                <input
+                    type="file"
+                    id="productImage"
+                    accept="image/*">
+
+                <small class="file-help">
+                    JPG, PNG or WebP. Use a clear product picture.
+                </small>
+
+            </div>
+
+
+            <div id="imagePreview"
+                 class="image-preview"
+                 style="display:none;">
+            </div>
+
+
+            <div class="modal-actions">
+
+                <button
+                    type="button"
+                    class="secondary-button"
+                    onclick="closeProductModal()">
+                    Cancel
+                </button>
+
+                <button
+                    type="submit"
+                    class="primary-button">
+                    Save Product
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<script src="app.js"></script>
+
+</div>
+
+</body>
+</html>
