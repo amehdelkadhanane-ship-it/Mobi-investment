@@ -1,0 +1,10 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CONTIX Admin</title><link rel="stylesheet" href="admin-style.css"></head>
+<body>
+<div id="login" class="login"><form id="loginForm"><h1>CONTIX OWNER PANEL</h1><p>Private administration</p><input id="email" type="email" placeholder="Admin email" required><input id="password" type="password" placeholder="Password" required><button>Sign in</button><small>Never share this login or your server API keys.</small></form></div>
+<div id="app" class="app hidden">
+<aside><div class="adminbrand">CONTIX<br><span>OWNER PANEL</span></div><button data-view="overview">Overview</button><button data-view="products">Products</button><button data-view="orders">Orders</button><button data-view="customers">AI handovers</button><button data-view="ai">AI assistant</button><button data-view="marketing">Marketing</button><button data-view="settings">Settings</button><button id="logout">Log out</button></aside>
+<main class="adminmain"><div class="adminhead"><div><h1 id="title">Overview</h1><p>Control your store from one place.</p></div><a href="/" target="_blank">View store ↗</a></div><section id="view"></section></main>
+</div>
+<script src="config.js"></script><script src="admin.js"></script>
+</body></html>
