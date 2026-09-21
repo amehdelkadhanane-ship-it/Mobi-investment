@@ -577,7 +577,7 @@ app.get("/api/admin/dashboard", auth, (_req, res) => {
 app.use("/uploads", express.static(UPLOADS, { maxAge: "30d" }));
 app.use(express.static(PUBLIC, { extensions: ["html"] }));
 
-app.get("*", (_req, res) => res.sendFile(path.join(PUBLIC, "index.html")));
+app.use((_req, res) => res.sendFile(path.join(PUBLIC, "index.html")));
 
 app.listen(PORT, () => {
   console.log(`CONTIX store running on http://localhost:${PORT}`);
