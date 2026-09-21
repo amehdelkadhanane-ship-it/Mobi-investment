@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CONTIX PHONE'S AND GADGETS</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="topbar">Fast delivery • Secure checkout • Genuine products • AI support available</div>
+<header class="header">
+  <a class="brand" href="/">CONTIX <span>PHONE'S AND GADGETS</span></a>
+  <form id="searchForm" class="search"><input id="search" placeholder="Search phones, gadgets, accessories..."><button>Search</button></form>
+  <a class="cartlink" href="cart.html">Cart <b id="cartCount">0</b></a>
+</header>
+<nav class="nav">
+  <button data-cat="">All</button><button data-cat="Phones">Phones</button><button data-cat="Tablets">Tablets</button><button data-cat="Audio">Audio</button><button data-cat="Power">Power</button><button data-cat="Wearables">Wearables</button><button data-cat="Accessories">Accessories</button>
+</nav>
+<main>
+<section class="hero">
+  <div><small>CONTIX STORE</small><h1>Technology you can trust.</h1><p>Shop smartphones, gadgets and accessories from one professional store.</p><a href="#products" class="cta">Shop now</a></div>
+  <div class="hero-card"><strong>Owner-controlled store</strong><span>New products, prices, stock and images are managed from your private admin panel.</span></div>
+</section>
+<section class="toolbar"><h2 id="sectionTitle">Featured products</h2><select id="sort"><option value="featured">Featured</option><option value="low">Price: low to high</option><option value="high">Price: high to low</option><option value="new">Newest</option></select></section>
+<section id="products" class="grid"></section>
+</main>
+<div id="chat" class="chat">
+  <button id="chatToggle" class="chat-toggle">AI Support</button>
+  <div class="chatbox hidden">
+    <div class="chathead"><b>CONTIX AI Support</b><button id="chatClose">×</button></div>
+    <div id="messages" class="messages"><div class="ai">Hi! I can help you find products, check store information, and hand you over to the store team when needed.</div></div>
+    <div class="chatinput"><input id="chatInput" placeholder="Ask about a product..."><button id="chatSend">Send</button></div>
+    <button id="humanBtn" class="human">Talk to the store team</button>
+  </div>
+</div>
+<script src="config.js"></script><script src="app.js"></script>
+</body>
+</html>
