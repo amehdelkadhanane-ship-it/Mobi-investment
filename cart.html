@@ -1,1 +1,348 @@
-<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cart | Contix Phones</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="style.css"></head><body><header><div class="wrap nav"><a class="logo" href="index.html">▣ Contix <b>Phones</b></a><nav><a href="index.html">Home</a><a href="index.html#products">Products</a></nav><a class="cart" href="cart.html">🛒 <span id="cartCount">0</span></a></div></header><main class="cartPage wrap"><small>PRE-ORDER</small><h1>Your Shopping Cart</h1><div id="cartItems"></div><div class="cartBottom"><a class="btn ghost" href="index.html#products">← Continue Shopping</a><div><h2>Total: <span id="total">$0.00</span></h2><button id="checkout" class="btn">Proceed to Checkout →</button></div></div></main><div id="modal" class="modal" hidden><div class="modalBox"><button class="close">×</button><small>CHECKOUT</small><h2>Complete Your Pre-Order</h2><form id="orderForm"><input id="name" placeholder="Full name" required><input id="mail" type="email" placeholder="Email address" required><input id="phone" placeholder="Phone number" required><textarea id="address" placeholder="Delivery address" required></textarea><div id="checkoutBank" class="bankDetails"></div><button class="btn">Create Order & Show Payment Details</button></form><div id="success"></div></div></div><footer><div class="wrap">© 2026 Contix Phones</div></footer><script src="app.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Your Cart | Contix Phones</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<header class="navbar">
+
+    <a href="index.html" class="logo">
+        <span class="logo-icon">C</span>
+        <span>CONTIX</span>
+    </a>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="index.html#products">Phones</a>
+        <a href="index.html#how-it-works">How It Works</a>
+    </nav>
+
+    <a href="index.html" class="cart-button">
+        ← Continue Shopping
+    </a>
+
+</header>
+
+
+<main class="cart-page">
+
+    <div class="cart-heading">
+
+        <span class="section-label">YOUR SELECTION</span>
+
+        <h1>Shopping Cart</h1>
+
+        <p>
+            Review your selected phones before placing your pre-order.
+        </p>
+
+    </div>
+
+
+    <div class="cart-layout">
+
+        <section>
+
+            <div id="cartItems" class="cart-items"></div>
+
+            <div id="emptyCart" class="empty-state">
+
+                <div class="empty-icon">🛒</div>
+
+                <h3>Your cart is empty</h3>
+
+                <p>
+                    You haven't added any phones yet.
+                </p>
+
+                <a href="index.html#products" class="primary-button">
+                    Browse Phones
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <aside class="cart-summary" id="cartSummary">
+
+            <h2>Order Summary</h2>
+
+            <div class="summary-row">
+                <span>Subtotal</span>
+                <strong id="cartSubtotal">₦0</strong>
+            </div>
+
+            <div class="summary-row">
+                <span>Delivery</span>
+                <strong>To be confirmed</strong>
+            </div>
+
+            <div class="summary-divider"></div>
+
+            <div class="summary-total">
+                <span>Total</span>
+                <strong id="cartTotal">₦0</strong>
+            </div>
+
+            <button
+                id="checkoutButton"
+                class="primary-button full-button">
+                Proceed to Pre-Order
+            </button>
+
+            <p class="secure-note">
+                🔒 Payment is made by bank transfer using the
+                account details shown during checkout.
+            </p>
+
+        </aside>
+
+    </div>
+
+</main>
+
+
+<!-- CHECKOUT MODAL -->
+
+<div id="checkoutModal" class="modal">
+
+    <div class="modal-box">
+
+        <button
+            class="close-modal"
+            onclick="closeCheckout()">
+            ×
+        </button>
+
+        <div class="modal-heading">
+
+            <span class="section-label">
+                PRE-ORDER
+            </span>
+
+            <h2>Complete Your Order</h2>
+
+            <p>
+                Enter your details and follow the payment instructions.
+            </p>
+
+        </div>
+
+
+        <form id="checkoutForm">
+
+            <div class="form-group">
+
+                <label for="customerName">
+                    Full Name
+                </label>
+
+                <input
+                    type="text"
+                    id="customerName"
+                    required
+                    placeholder="Enter your full name">
+
+            </div>
+
+
+            <div class="form-row">
+
+                <div class="form-group">
+
+                    <label for="customerPhone">
+                        Phone Number
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="customerPhone"
+                        required
+                        placeholder="08012345678">
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="customerEmail">
+                        Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="customerEmail"
+                        required
+                        placeholder="you@example.com">
+
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="customerAddress">
+                    Delivery Address
+                </label>
+
+                <textarea
+                    id="customerAddress"
+                    rows="3"
+                    required
+                    placeholder="Enter your delivery address"></textarea>
+
+            </div>
+
+
+            <div class="payment-box">
+
+                <div class="payment-header">
+                    <span>🏦</span>
+
+                    <div>
+                        <h3>Bank Transfer</h3>
+                        <p>
+                            Transfer the total amount to:
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="bank-details">
+
+                    <div>
+                        <span>Bank</span>
+                        <strong id="checkoutBankName">
+                            Not configured
+                        </strong>
+                    </div>
+
+                    <div>
+                        <span>Account Name</span>
+                        <strong id="checkoutAccountName">
+                            Not configured
+                        </strong>
+                    </div>
+
+                    <div>
+                        <span>Account Number</span>
+
+                        <strong
+                            id="checkoutAccountNumber">
+                            Not configured
+                        </strong>
+                    </div>
+
+                    <div>
+                        <span>Amount</span>
+
+                        <strong
+                            class="payment-amount"
+                            id="checkoutAmount">
+                            ₦0
+                        </strong>
+                    </div>
+
+                </div>
+
+                <p class="payment-warning">
+                    ⚠️ Please make sure you transfer the exact
+                    amount shown above.
+                </p>
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="primary-button full-button">
+                Confirm Pre-Order
+            </button>
+
+        </form>
+
+
+        <div
+            id="orderSuccess"
+            class="order-success"
+            style="display:none;">
+
+            <div class="success-icon">
+                ✓
+            </div>
+
+            <h2>Order Received!</h2>
+
+            <p>
+                Your pre-order has been recorded.
+                Please complete your bank transfer and keep
+                your payment receipt.
+            </p>
+
+            <div class="success-order-number">
+                Order ID:
+                <strong id="successOrderId"></strong>
+            </div>
+
+            <button
+                class="primary-button"
+                onclick="window.location.href='index.html'">
+                Back to Home
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<footer>
+
+    <div class="footer-content">
+
+        <div>
+
+            <div class="logo footer-logo">
+                <span class="logo-icon">C</span>
+                <span>CONTIX</span>
+            </div>
+
+            <p>
+                Premium smartphones. Simple pre-orders.
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="copyright">
+        © <span id="year"></span> Contix Phones.
+        All rights reserved.
+    </div>
+
+</footer>
+
+
+<script src="app.js"></script>
+
+<script>
+    document.getElementById("year").textContent =
+        new Date().getFullYear();
+</script>
+
+</body>
+</html>
