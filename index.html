@@ -1,7 +1,292 @@
-<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Contix Phones | Pre-Order</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="style.css"></head><body>
-<header><div class="wrap nav"><a class="logo" href="index.html">▣ Contix <b>Phones</b></a><nav><a href="index.html">Home</a><a href="#products">Products</a><a href="#how">How It Works</a><a href="#contact">Contact</a></nav><div><a class="cart" href="cart.html">🛒 <span id="cartCount">0</span></a><a class="admin" href="admin.html">Admin</a></div></div></header>
-<main><section class="hero"><div class="wrap heroGrid"><div><small>LATEST SMARTPHONES</small><h1>Pre-Order The Future with <em>Contix</em></h1><p>Be the first to own the latest smartphones. Secure yours today with a direct pre-order.</p><a class="btn" href="#products">Browse Products →</a><div class="trust"><span>◈ Secure Payment<br><i>Direct Bank Transfer</i></span><span>▣ Fast Delivery<br><i>Reliable Service</i></span><span>★ Premium Devices<br><i>Quality Products</i></span></div></div><div class="heroPhones"><div class="mock back"></div><div class="mock front"></div></div></div></section>
-<section id="products" class="section wrap"><small>OUR PRODUCTS</small><h2>Available for Pre-Order</h2><div id="productsGrid" class="grid"></div></section>
-<section id="how" class="section wrap process"><div><small>HOW IT WORKS</small><h2>Simple 4-Step Pre-Order Process</h2><p>Choose your device, make your bank transfer, send confirmation, and we process your order.</p></div><div class="steps"><div><b>1</b><h3>Choose Phone</h3><p>Select your preferred device.</p></div><div><b>2</b><h3>Make Payment</h3><p>Transfer to our account.</p></div><div><b>3</b><h3>Confirm</h3><p>Send payment proof.</p></div><div><b>4</b><h3>Get Device</h3><p>We process your order.</p></div></div></section>
-<section class="section wrap bank"><div class="secure"><strong>♙</strong><h3>Secure Payments</h3><p>Direct Bank Transfer Only</p></div><div><small>PAYMENT DETAILS</small><h2>Bank Account Details</h2><div id="bank" class="bankDetails"></div><p>After payment, send confirmation to <b id="email">admin@contixphones.com</b>.</p></div></section>
-<section id="contact" class="contact"><div class="wrap"><h2>Get In Touch</h2><p>Have questions? Reach out to us!</p><b id="contactEmail">admin@contixphones.com</b></div></section></main><footer><div class="wrap">© 2026 Contix Phones <span>More Than Just a Phone</span></div></footer><script src="app.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Contix Phones | Premium Phones & Pre-Orders</title>
+
+    <meta name="description" content="Contix Phones - Premium smartphones available for pre-order in Nigeria.">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="navbar">
+
+    <a href="index.html" class="logo">
+        <span class="logo-icon">C</span>
+        <span>CONTIX</span>
+    </a>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#products">Phones</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <a href="cart.html" class="cart-button">
+        🛒 Cart
+        <span id="cartCount">0</span>
+    </a>
+
+</header>
+
+
+<main>
+
+    <!-- HERO -->
+
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <div class="hero-badge">
+                ✦ PREMIUM SMARTPHONES
+            </div>
+
+            <h1>
+                Your Next Phone
+                <span>Starts Here.</span>
+            </h1>
+
+            <p>
+                Discover premium smartphones and place your pre-order
+                securely with Contix Phones.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#products" class="primary-button">
+                    Shop Phones →
+                </a>
+
+                <a href="#how-it-works" class="secondary-button">
+                    How It Works
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="hero-card">
+
+            <div class="hero-card-glow"></div>
+
+            <div class="hero-phone">
+                📱
+            </div>
+
+            <div class="hero-card-text">
+                <small>NEW ARRIVALS</small>
+                <strong>PRE-ORDER NOW</strong>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FEATURES -->
+
+    <section class="features">
+
+        <div class="feature">
+            <div class="feature-icon">🚚</div>
+            <div>
+                <h3>Pre-Order</h3>
+                <p>Reserve your phone before it sells out.</p>
+            </div>
+        </div>
+
+        <div class="feature">
+            <div class="feature-icon">🔒</div>
+            <div>
+                <h3>Secure Payment</h3>
+                <p>Pay through our provided bank details.</p>
+            </div>
+        </div>
+
+        <div class="feature">
+            <div class="feature-icon">🇳🇬</div>
+            <div>
+                <h3>Nigerian Naira</h3>
+                <p>All prices are displayed in ₦ NGN.</p>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- PRODUCTS -->
+
+    <section class="products-section" id="products">
+
+        <div class="section-heading">
+
+            <div>
+                <span class="section-label">OUR COLLECTION</span>
+
+                <h2>Featured Phones</h2>
+
+                <p>
+                    Choose your phone and place your pre-order.
+                </p>
+            </div>
+
+            <a href="cart.html" class="outline-button">
+                View Cart →
+            </a>
+
+        </div>
+
+        <div id="productsGrid" class="products-grid"></div>
+
+        <div id="emptyProducts" class="empty-state" style="display:none;">
+            <div class="empty-icon">📱</div>
+            <h3>No products available</h3>
+            <p>
+                Products will appear here when they are added.
+            </p>
+        </div>
+
+    </section>
+
+
+    <!-- HOW IT WORKS -->
+
+    <section class="how-section" id="how-it-works">
+
+        <div class="section-heading center">
+
+            <span class="section-label">SIMPLE PROCESS</span>
+
+            <h2>How It Works</h2>
+
+            <p>
+                Ordering your next phone is simple.
+            </p>
+
+        </div>
+
+
+        <div class="steps">
+
+            <div class="step">
+                <div class="step-number">01</div>
+                <h3>Choose Your Phone</h3>
+                <p>
+                    Browse our available smartphones and select the
+                    phone you want.
+                </p>
+            </div>
+
+            <div class="step">
+                <div class="step-number">02</div>
+                <h3>Add To Cart</h3>
+                <p>
+                    Add one or more phones to your shopping cart.
+                </p>
+            </div>
+
+            <div class="step">
+                <div class="step-number">03</div>
+                <h3>Place Your Order</h3>
+                <p>
+                    Enter your contact details and confirm your order.
+                </p>
+            </div>
+
+            <div class="step">
+                <div class="step-number">04</div>
+                <h3>Make Payment</h3>
+                <p>
+                    Transfer the required amount to the provided
+                    Nigerian bank account.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+
+    <section class="contact-section" id="contact">
+
+        <div class="contact-box">
+
+            <div>
+
+                <span class="section-label">GET IN TOUCH</span>
+
+                <h2>Need Help?</h2>
+
+                <p>
+                    Contact Contix Phones if you have questions about
+                    an order, product or payment.
+                </p>
+
+            </div>
+
+            <div class="contact-details">
+
+                <a id="contactEmail" href="mailto:contact@contixphones.com">
+                    ✉️ contact@contixphones.com
+                </a>
+
+                <a id="contactPhone" href="tel:+2340000000000">
+                    📞 +234 000 000 0000
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer>
+
+    <div class="footer-content">
+
+        <div>
+            <div class="logo footer-logo">
+                <span class="logo-icon">C</span>
+                <span>CONTIX</span>
+            </div>
+
+            <p>
+                Premium smartphones. Simple pre-orders.
+            </p>
+        </div>
+
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="#products">Phones</a>
+            <a href="cart.html">Cart</a>
+            <a href="admin.html">Admin</a>
+        </div>
+
+    </div>
+
+    <div class="copyright">
+        © <span id="year"></span> Contix Phones. All rights reserved.
+    </div>
+
+</footer>
+
+
+<script src="app.js"></script>
+
+<script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
