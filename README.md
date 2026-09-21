@@ -14,7 +14,7 @@ Settings -> Pages -> Deploy from a branch -> main -> /(root) -> Save.
 Admin URL:
 https://YOUR-USERNAME.github.io/YOUR-REPOSITORY/admin.html
 
-Demo admin password: contix123
+Demo admin password: King2025
 Change ADMIN_PASSWORD in app.js before publishing.
 
 IMPORTANT:
