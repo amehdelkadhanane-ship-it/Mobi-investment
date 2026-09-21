@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart - Preme Phones</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <a href="index.html" class="logo">Preme Phones</a>
+            <nav>
+                <ul>
+                    <li><a href="index.html#products">Products</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-icons">
+                <a href="cart.html" class="cart-icon"><span id="cart-count">0</span></a>
+            </div>
+        </div>
+    </header>
+
+    <main class="cart-main">
+        <div class="container">
+            <h1>Your Shopping Cart</h1>
+            <div id="cart-items" class="cart-items-container">
+                <!-- Cart items will be dynamically loaded here -->
+            </div>
+            <div class="cart-summary">
+                <h3>Total: $<span id="cart-total">0.00</span></h3>
+                <button id="checkout-btn" class="btn btn-primary">Proceed to Checkout</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Checkout Modal -->
+    <div id="checkout-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Complete Your Pre-Order</h2>
+            <p>Please make a direct bank transfer to the account below to secure your order.</p>
+            <div id="bank-details" class="bank-details">
+                <!-- Bank details will be loaded here -->
+            </div>
+            <p class="payment-note">After payment, please send a confirmation email to admin@premephones.com with your order number.</p>
+        </div>
+    </div>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2026 Preme Phones. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
